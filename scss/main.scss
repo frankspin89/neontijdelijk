@@ -1,0 +1,227 @@
+$primary-color: #ff3901;
+$white: #fff;
+$font-family: "Moderat";
+$font-family-heading: "Moderat Trial";
+
+@mixin for-size($size) {
+    @if $size == phone-only {
+      @media (max-width: 599px) { @content; }
+    } @else if $size == tablet-portrait-up {
+      @media (min-width: 600px) { @content; }
+    } @else if $size == tablet-landscape-up {
+      @media (min-width: 900px) { @content; }
+    } @else if $size == desktop-up {
+      @media (min-width: 1320px) { @content; }
+    } @else if $size == big-desktop-up {
+      @media (min-width: 1800px) { @content; }
+    }
+  }
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+    font-weight: 500;
+    font-style: normal;
+}
+
+*,
+*:after,
+*:before {
+    box-sizing: border-box;
+    outline: 0;
+}
+
+html {
+    -ms-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
+}
+
+body,
+html {
+    margin: 0;
+    padding: 0;
+}
+
+@import "./_fonts.scss";
+
+body {
+    background-color: $primary-color;
+    font-family: $font-family;
+    font-size: 16px;
+    letter-spacing: 0.015rem;
+    color: $white;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.layout {
+    max-width: 1440px;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+
+}
+
+.main {
+    flex: 1;
+}
+
+.brand {
+    font-size: 47px;
+    line-height: 0;
+    font-family: $font-family-heading;
+    @include for-size(tablet-mobile-only) {
+        margin-bottom: 3rem;
+     
+    }
+    @include for-size(tablet-landscape-up) {
+        
+        font-size: 57px;
+    }
+    @include for-size(desktop-up) {
+        font-size: 87px;
+    }
+}
+
+.site-header {
+
+    z-index: 10;
+    background-color: $primary-color;
+    width: 100%;
+    
+    @include for-size(tablet-portrait-up) {
+        
+        position: fixed;
+    }
+
+    .layout {
+        @include for-size(tablet-landscape-up) {
+        
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        }
+    }
+}
+
+.site-header-address {
+    font-size: 18px;
+    line-height: 31px;
+    @include for-size(tablet-portrait-up) {
+        display: flex;
+
+    }
+    @include for-size(desktop-up) {
+        font-size: 25px;
+        
+    }
+    
+    a {
+        color: $white;
+        text-decoration: none;
+    }
+    
+    p {
+        margin-bottom: 1rem;
+        @include for-size(tablet-portrait-up) {
+            margin-left: 2.5rem;
+            margin-bottom: 0;
+        }
+        @include for-size(desktop-up) {
+            margin-left: 5rem;
+        }
+        margin-bottom: 0;
+
+        &:first-of-type {
+            margin-left: 0;
+        }
+    }
+}
+
+.main-content {
+    position: relative;
+
+    padding-top: 2rem;
+    padding-left: 0rem;
+    padding-right: 0rem;
+    padding-bottom: 10rem;
+    @include for-size(tablet-portrait-up) {
+        
+        padding-top: 12rem;
+    }
+    @include for-size(tablet-landscape-up) {
+        
+            padding-top: 10rem;
+
+
+    }
+    @include for-size(desktop-up) {
+        padding-top: 20rem;
+
+        padding-bottom: 20rem;
+        
+    }
+}
+
+.site-padding {
+    padding-left: 1rem;
+    padding-right: 1rem;
+    @include for-size(tablet-portrait-up) {
+        padding-left: 3rem;
+        padding-right: 3rem;
+
+    }
+}
+
+
+.instagram-feed {
+    display: grid; 
+    grid-template-columns: 1fr;
+    grid-row-gap: 1rem;
+    grid-column-gap: 1rem;
+    
+    @include for-size(tablet-portrait-up) {
+        grid-template-columns: 1fr 1fr;
+    }
+    @include for-size(tablet-landscape-up) {
+        grid-row-gap: 3rem;
+        grid-column-gap: 3rem;
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+
+    img {
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+    }
+}
+
+img {
+    width: 100%;
+    height: auto;
+}
+
+
+.mb-3 {
+    margin-bottom: 3rem;
+}
+.mb-5 {
+    margin-bottom: 5rem;
+}
+
+.f1 {
+    font-size: 18px;
+    line-height: 31px;
+    @include for-size(tablet-portrait-up) {
+
+    }
+    @include for-size(desktop-up) {
+        font-size: 25px;
+        
+    }
+}

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Studio Neon</title>
+    <link rel="stylesheet" href="./css/main.css">
+    <script src="js/instafeed.js"></script>
+</head>
+
+<body>
+    <main class="main">
+        <header class="site-header">
+            <div class="layout site-padding">
+            <h1 class="brand">studio neon</h1>
+            <div class="site-header-address">
+                <p>Akkerstraat 95
+                    <br> Groningen
+                </p>
+                <p>
+                    Esdoornstraat 3
+                    <br> Zwolle
+                </p>
+                <p>
+                    <a href="mailto:info@studioneon.nl">info@studioneon.nl</a>
+                    <br>
+                    <a href="tel:+31851301423">085 130 1423</a>
+                </p>
+            </div>
+        </div>
+        </header>
+        <div class="layout site-padding">
+            <div class="main-content">
+                <h1 class="f1 mb-3">Dit is een tijdelijke website waar voorbeelden van ons werk te zien zijn.</h1>
+                <div class="instagram-feed" id="instafeed"></div>
+               
+            </div>
+        </div>
+    </main>
+</body>
+
+<script type="text/javascript">
+    var feed = new Instafeed({
+        get: 'user',
+        userId: '6267146505',
+        clientId: '73a01e7f243c494ea5bca38ca6ca43cf',
+        template: '<a href="{{link}}"><img src="{{image}}" /></a>',
+        accessToken: '6267146505.73a01e7.0ac4d673b2464f0fb2e1aeb7999c761c',
+        resolution: 'standard_resolution',
+        sortBy: 'most-recent',
+        limit: 999
+    });
+    feed.run();
+</script>
+
+</html>
